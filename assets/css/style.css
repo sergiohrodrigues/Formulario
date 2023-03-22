@@ -135,6 +135,12 @@ body{
     color: #FF7979;
 }
 
+#sucess{
+    display: none;
+    margin-top: -1rem;
+    color: green;
+}
+
 @media screen and (min-width: 1024px){
     .principal{
         display: flex;

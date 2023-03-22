@@ -25,15 +25,16 @@
 
             <div class="form">
                 <form>
-                    <input type="text" placeholder="First Name" id="nome" class="form__item">
+                    <input type="text" placeholder="First Name" id="nome" class="form__item" required>
                     <p id="erroParag">First Name cannot be empty</p>
-                    <input type="text" placeholder="Last Name" id="sobrenome" class="form__item">
+                    <input type="text" placeholder="Last Name" id="sobrenome" class="form__item" required>
                     <p id="erroParag">Last Name cannot be empty</p>
-                    <input type="text" placeholder="Email address" id="email" class="form__item">
+                    <input type="text" placeholder="Email address" id="email" class="form__item" required>
                     <p id="erroParag">Looks like this is not an email</p>
-                    <input type="password" placeholder="Password" id="senha" class="form__item">
+                    <input type="password" placeholder="Password" id="senha" class="form__item" required>
                     <p id="erroParag">Password cannot be empty</p>
 
+                    <p id="sucess">Dados enviados com sucesso!</p>
                     <input type="submit" value="CLAIM YOUR FREE TRIAL" id="btn" class="submit">
                 </form>
 
