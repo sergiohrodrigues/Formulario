@@ -4,17 +4,25 @@ let erroParag = document.querySelectorAll('#erroParag');
 
 btnSubmit.addEventListener('click', verificarCampoInvalido)
 
-function verificarCampoInvalido(){
-
+function verificarCampoInvalido(event) {
     event.preventDefault();
 
-    for(let i = 0; i < btns.length; i++){
-        if(btns[i].value === ''){
+    for (let i = 0; i < btns.length; i++) {
+        if (btns[i].value === '') {
             btns[i].classList.add('form__item-img');
             erroParag[i].style.display = 'Block';
-        }else {
+        } else {
             btns[i].classList.remove('form__item-img');
             erroParag[i].style.display = 'none';
         }
     }
 }
+
+btns.forEach((inpt) => {
+    inpt.addEventListener("blur", () => {   
+        for (let i = 0; i < erroParag.length; i++) {
+            inpt.classList.remove('form__item-img')
+            erroParag[i].style.display = "none"
+        }
+    })
+})
