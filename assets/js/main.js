@@ -1,5 +1,5 @@
 let btnSubmit = document.querySelector('#btn');
-let btns = document.querySelectorAll('.form__item')
+let inputs = document.querySelectorAll('#input')
 let erroParag = document.querySelectorAll('#erroParag');
 const sucess = document.querySelector("#sucess")
 
@@ -8,24 +8,29 @@ btnSubmit.addEventListener('click', verificarCampoInvalido)
 function verificarCampoInvalido(event) {
     event.preventDefault();
 
-    for (let i = 0; i < btns.length; i++) {
-        if (btns[i].value !== '') {
-            btns[i].classList.remove('form__item-img');
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value !== '') {
+            inputs[i].classList.remove('form__item-img');
             erroParag[i].style.display = 'none';
+            inputs[i].value = ""
             sucess.style.display = "block"
-            btns[i].value = ""
+            setTimeout(sucesso, 3000)
         } else {
-            btns[i].classList.add('form__item-img');
+            inputs[i].classList.add('form__item-img');
             erroParag[i].style.display = 'Block';
         }
     }
 }
 
-btns.forEach((inpt) => {
-    inpt.addEventListener("blur", () => {   
-        for (let i = 0; i < erroParag.length; i++) {
+inputs.forEach((inpt) => {
+    inpt.addEventListener("input", (evento) => {   
+        if(inpt.value.length > 5){
+            evento.srcElement.nextElementSibling.style.display = 'none'
             inpt.classList.remove('form__item-img')
-            erroParag[i].style.display = "none"
         }
     })
 })
+
+function sucesso(){
+    sucess.style.display = "none"
+}
