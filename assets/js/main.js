@@ -3,11 +3,34 @@ let inputs = document.querySelectorAll('#input')
 let erroParag = document.querySelectorAll('#erroParag');
 const sucess = document.querySelector("#sucess")
 
-btnSubmit.addEventListener('click', verificarCampoInvalido)
+btnSubmit.addEventListener('click', verificarCamposInvalido)
 
-function verificarCampoInvalido(event) {
-    event.preventDefault();
+function verificarCamposInvalido(evento){
+    evento.preventDefault()
+    const arrayInputs = Array.from(inputs)
 
+    const todosInputs = arrayInputs.filter((item) => {
+        if(item.value !== ''){
+            return true
+        } else {
+            return false
+        }
+    })
+
+    if(todosInputs.length === inputs.length){
+        aplicarMensagemDeErro(evento)
+    }
+     else {
+        for (let i = 0; i < inputs.length; i++) {
+                inputs[i].classList.add('form__item-img');
+                erroParag[i].style.display = 'Block';
+                inputs[i].value = ''
+            }
+    }
+}
+
+function aplicarMensagemDeErro(evento) {
+    evento.preventDefault()
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].value !== '') {
             inputs[i].classList.remove('form__item-img');
@@ -22,6 +45,10 @@ function verificarCampoInvalido(event) {
     }
 }
 
+function sucesso(){
+    sucess.style.display = "none"
+}
+
 inputs.forEach((inpt) => {
     inpt.addEventListener("input", (evento) => {   
         if(inpt.value.length > 5){
@@ -30,7 +57,3 @@ inputs.forEach((inpt) => {
         }
     })
 })
-
-function sucesso(){
-    sucess.style.display = "none"
-}

@@ -15,15 +15,12 @@ body{
     font-size: 16px;
 }
 
-main{
+.principal{
     background-color: var(--laranja);
     background-image: url(../img/fundo.png);
     background-repeat: calc();
     height: 100%;
     width: 100%;
-}
-
-.principal{
     margin: 0 auto;
     text-align: center;
     padding: 1rem 0 2rem 0;
@@ -32,7 +29,6 @@ main{
 .principal__texto{
     width: 90%;
     margin: 0 auto;
-    max-width: 540px;
     text-align: center;
 }
 
@@ -148,16 +144,22 @@ main{
 
 @media screen and (min-width: 1024px){
     .principal{
+        height: 100vh;
         display: flex;
         align-items: center;
-        margin-top: 100px;
+        justify-content: center;
+        padding: 0;
+    }
+    .principal__texto{
+        width: 50%;
+        padding: 0 4rem;
     }
     .principal__texto-titulo{
         font-size: 3.5em;
         line-height: 55px;
     }
     .container{
-        width: 650px;
+        width: 50%;
     }
     .principal__days-paragrafo{
         padding: 20px 0;
